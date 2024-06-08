@@ -28,6 +28,7 @@ export const useUsersStore = defineStore('Users', () => {
           cvv: faker.finance.creditCardCVV(),
           date: `${Math.floor(Math.random() * 12 + 1).toString().padStart(2, '0')}/202${Math.floor(Math.random() * 10)}`,
           issuer: faker.finance.creditCardIssuer(),
+          img: Math.floor(Math.random() * 4),
         },
       })
     }

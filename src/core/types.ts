@@ -28,10 +28,11 @@ export interface User {
   status: 'Online' | 'Sleep' | 'Offline' | 'Busy'
   vip: boolean
   creditCard: {
-    no: number
+    no: string
     date: string
     name: string
-    cvv: number
-    issiuer: string
+    cvv: string
+    issuer: string
+    img: number
   }
 }

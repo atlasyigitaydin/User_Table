@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import UsersTable from './widgets/UsersTable.vue'
+import Finance from './widgets/Finance.vue'
 </script>
 
 <template>
   <UsersTable />
-  <div class="w-full h-full flex align-items-start">
+  <div class="flex flex-column w-full h-full flex align-items-start">
     <NavBar />
+    <Finance />
   </div>
 </template>
 
