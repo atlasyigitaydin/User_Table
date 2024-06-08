@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import DynamicDialog from 'primevue/dynamicdialog'
-import Toast from 'primevue/Toast'
-import ConfirmDialog from 'primevue/ConfirmDialog'
 
 useHead({
   title: 'Users Panel',
@@ -18,9 +16,6 @@ useHead({
   ],
   link: [
     {
-      // rel: 'icon',
-      // type: 'image/svg+xml',
-      // href: () => isDark.value ? '/src/assets/icons/svg/dark-vue.svg' : '/src/assets/icons/svg/light-vue.svg',
     },
     ...themeLinks,
   ],

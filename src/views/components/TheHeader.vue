@@ -25,12 +25,12 @@ const items = ref([
       router.push('/about')
     },
   },
-  {
-    icon: () => `pi pi-${isDark.value ? 'sun' : 'moon'}`,
-    command: () => {
-      toggleDark()
-    },
-  },
+  // {
+  //   icon: () => `pi pi-${isDark.value ? 'sun' : 'moon'}`,
+  //   command: () => {
+  //     toggleDark()
+  //   },
+  // },
 ])
 </script>
 

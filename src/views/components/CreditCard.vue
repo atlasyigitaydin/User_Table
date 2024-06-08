@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { User } from '~/core/types';
-const props =defineProps<{
+const props = defineProps<{
   card: User['creditCard']
 }>()
+
+const toast = useToast
 </script>
 
 <template>

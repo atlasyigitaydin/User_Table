@@ -8,7 +8,7 @@ const items = ref([
   { label: 'Bank Account', icon: 'pi pi-chart-line' },
   { label: 'Products', icon: 'pi pi-list' },
   { label: 'Messages', icon: 'pi pi-inbox' },
-  { icon: 'pi pi-sun', command: () => { toggleDark() } },
+  // { icon: 'pi pi-sun', command: () => { toggleDark() } },
 ])
 </script>
 
