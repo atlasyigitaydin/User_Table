@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import UsersTable from './widgets/UsersTable.vue'
-const usersStore = useUsersStore()
 </script>
 
 <template>
@@ -15,4 +14,4 @@ name: users
 path: /
 meta:
   layout: default
-        </route>
+</route>

@@ -8,11 +8,12 @@ const items = ref([
   { label: 'Bank Account', icon: 'pi pi-chart-line' },
   { label: 'Products', icon: 'pi pi-list' },
   { label: 'Messages', icon: 'pi pi-inbox' },
+  { icon: 'pi pi-sun', command: () => { toggleDark() } },
 ])
 </script>
 
 <template>
-  <div class="w-full flex justify-content-center pt-2">
+  <div class="w-full flex justify-content-end pt-2 z-5">
     <TabMenu v-model:activeIndex="active" class="border-round" :model="items" />
   </div>
 </template>

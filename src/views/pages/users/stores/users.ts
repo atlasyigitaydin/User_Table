@@ -21,6 +21,14 @@ export const useUsersStore = defineStore('Users', () => {
           thumbnail: `https://randomuser.me/api/portraits/thumb/men/${i}.jpg`,
         },
         status: getRandomStatus(),
+        vip: Math.floor(Math.random() * 5) === 3,
+        creditCard: {
+          name: faker.person.fullName(),
+          no: faker.finance.creditCardNumber(),
+          cvv: faker.finance.creditCardCVV(),
+          date: `${Math.floor(Math.random() * 12 + 1).toString().padStart(2, '0')}/202${Math.floor(Math.random() * 10)}`,
+          issuer: faker.finance.creditCardIssuer(),
+        },
       })
     }
     selectedUser.value = users.value[0]

@@ -44,7 +44,7 @@ html, body {
     position: fixed;
     display: flex;
     background-color: var(--app-bg-color);
-    background-image: var(--app-bg-img);
+    background-image: url('../image/bg.jpg');
     background-size: cover;
     color: var(--app-text-color);
 }

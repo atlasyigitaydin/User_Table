@@ -26,4 +26,12 @@ export interface User {
     thumbnail: string
   }
   status: 'Online' | 'Sleep' | 'Offline' | 'Busy'
+  vip: boolean
+  creditCard: {
+    no: number
+    date: string
+    name: string
+    cvv: number
+    issiuer: string
+  }
 }

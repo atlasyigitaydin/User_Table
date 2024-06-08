@@ -14,7 +14,7 @@ onMounted(async () => {
     :header="false"
     :value="usersStore.users"
     scrollable
-    class=""
+    class="opacity-90"
     scroll-height="flex"
     selection-mode="single"
     style="min-width: 300px;"
@@ -35,7 +35,13 @@ onMounted(async () => {
         </div>
       </template>
     </Column>
+
     <Column header="Name" field="fullName" />
+    <Column>
+      <template #body="data">
+        <div v-if="data.data.vip" class="pi pi-crown text-indigo-400" />
+      </template>
+    </Column>
     <Column>
       <template #body="data">
         <div v-if="data.data.status === 'Online'" class="pi pi-circle-fill text-xs text-green-400" />

@@ -4,7 +4,7 @@ import Toast from 'primevue/Toast'
 import ConfirmDialog from 'primevue/ConfirmDialog'
 
 useHead({
-  title: 'Temp',
+  title: 'Users Panel',
   htmlAttrs: { class: appMode.value },
   meta: [
     {
@@ -18,9 +18,9 @@ useHead({
   ],
   link: [
     {
-      rel: 'icon',
-      type: 'image/svg+xml',
-      href: () => isDark.value ? '/src/assets/icons/svg/dark-vue.svg' : '/src/assets/icons/svg/light-vue.svg',
+      // rel: 'icon',
+      // type: 'image/svg+xml',
+      // href: () => isDark.value ? '/src/assets/icons/svg/dark-vue.svg' : '/src/assets/icons/svg/light-vue.svg',
     },
     ...themeLinks,
   ],
