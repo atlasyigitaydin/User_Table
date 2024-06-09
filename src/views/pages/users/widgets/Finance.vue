@@ -41,8 +41,8 @@ const userStore = useUsersStore()
             <label class="text-3xl">{{ '.' }}</label>
             <label class="text-3xl">{{ userStore.selectedUser?.finance.monthDiffAmount.split('.')[1] }}</label>
           </div>
-          <label v-if="userStore.selectedUser?.finance.liability" class="text-green-300 w-full flex justify-content-end pr-4"> {{ "more" }} </label>
-          <label v-else class="text-red-300 w-full flex justify-content-end pr-4"> {{ "less" }} </label>
+          <label v-if="userStore.selectedUser?.finance.liability" class="text-green-400 w-full flex justify-content-end pr-4"> {{ "more" }} </label>
+          <label v-else class="text-red-400 w-full flex justify-content-end pr-4"> {{ "less" }} </label>
         </div>
         <div :class="`${userStore.selectedUser?.finance.liability ? 'text-green-400' : 'text-red-400'} pi pi-chart-line flex align-items-end justify-content-end p-2 text-xl`" />
       </div>

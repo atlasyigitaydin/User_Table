@@ -44,7 +44,7 @@ onMounted(async () => {
     </Column>
     <Column>
       <template #body="data">
-        <div v-if="data.data.status === 'Online'" class="pi pi-circle-fill text-xs text-green-400" />
+        <div v-if="data.data.social.status === 'Online'" class="pi pi-circle-fill text-xs text-green-400" />
       </template>
     </Column>
   </DataTable>
