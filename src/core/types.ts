@@ -22,13 +22,15 @@ export interface User {
   id: string
   fullName: string
   email: string
+  vip: boolean
   avatar: {
     large: string
     medium: string
     thumbnail: string
   }
-  status: 'Online' | 'Sleep' | 'Offline' | 'Busy'
-  vip: boolean
+  social: {
+    status: 'Online' | 'Sleep' | 'Offline' | 'Busy'
+  }
   finance: {
     creditCard: {
       no: string
@@ -38,5 +40,12 @@ export interface User {
       issuer: string
       img: number
     }
+    amount: string
+    currency: {
+      code: string
+      name: string
+      symbol: string
+    }
+    iban: string
   }
 }
