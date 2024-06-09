@@ -6,6 +6,15 @@ const userStore = useUsersStore()
   <div
     class="flex animation-duration-1000 animation-ease-in-out gap-2 w-full px-2"
   >
+    <DataTable
+      scroll-height="flex"
+      class="w-full overflow-hidden surface-border h-full border-1 border-round"
+    >
+      <template #header>
+        {{ "Credit Card Transactions" }}
+      </template>
+      <Column />
+    </DataTable>
     <div class="flex flex-column gap-2">
       <div
         style="background-color: var(--surface-0);"
@@ -47,8 +56,5 @@ const userStore = useUsersStore()
         <div :class="`${userStore.selectedUser?.finance.liability ? 'text-green-400' : 'text-red-400'} pi pi-chart-line flex align-items-end justify-content-end p-2 text-xl`" />
       </div>
     </div>
-    <!-- <DataTable class="w-full h-full border-round">
-      <Column />
-    </DataTable> -->
   </div>
 </template>
