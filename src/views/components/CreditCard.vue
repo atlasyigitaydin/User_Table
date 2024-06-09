@@ -48,6 +48,12 @@ const currentIssuer = computed(() => {
       return Discover
   }
 })
+const showCvv = ref<boolean>(false)
+const buttonIdCvv = ref<string>('cvv')
+// @ts-expect-error: Unreachable code error
+onClickOutside(() => {
+  showCvv.value = false
+})
 </script>
 
 <template>
@@ -76,11 +82,9 @@ const currentIssuer = computed(() => {
       </div>
     </div>
     <img class="shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="500" height="250" :src="currentBg">
-    <div style="width: 70px; height: 90px" class="flex text-2xl absolute opacity-40 bottom-0 right-0 m-3 z-5">
+    <div v-if="showCvv" style="width: 70px; height: 90px" class="flex text-2xl absolute opacity-40 bottom-0 right-0 m-3 z-5">
       {{ props.card.cvv }}
     </div>
+    <Button v-else ref="buttonIdCvv" icon="pi pi-eye text-2xl" class="flex text-2xl absolute opacity-40 bottom-0 right-0 mb-7 mr-6 z-5" link @click="showCvv = true" />
   </div>
 </template>
-
-<style scoped>
-</style>

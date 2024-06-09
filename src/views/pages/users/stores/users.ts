@@ -13,8 +13,9 @@ export const useUsersStore = defineStore('Users', () => {
 
   const setUsers = async () => {
     for (let i = 0; i < 100; i++) {
+      const _name = faker.person.fullName()
       users.value.push({
-        fullName: faker.person.fullName(),
+        fullName: _name,
         avatar: {
           large: `https://randomuser.me/api/portraits/thumb/men/${i}.jpg`,
           medium: `https://randomuser.me/api/portraits/thumb/men/${i}.jpg`,
@@ -23,7 +24,7 @@ export const useUsersStore = defineStore('Users', () => {
         status: getRandomStatus(),
         vip: Math.floor(Math.random() * 5) === 3,
         creditCard: {
-          name: faker.person.fullName(),
+          name: _name,
           no: faker.finance.creditCardNumber(),
           cvv: faker.finance.creditCardCVV(),
           date: `${Math.floor(Math.random() * 12 + 1).toString().padStart(2, '0')}/2${Math.floor(Math.random() * 10)}`,
