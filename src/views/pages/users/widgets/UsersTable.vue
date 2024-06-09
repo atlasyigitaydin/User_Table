@@ -10,11 +10,18 @@ const tableBar = ref<boolean>(true)
 const tableBarOpen = () => {
   tableBar.value = !tableBar.value
 }
+
+// Geçiş animasyonlarının bittiğini izlemek için ref
+const transitionEnded = ref<boolean>(true)
+
+const onTransitionEnd = () => {
+  transitionEnded.value = true
+}
 </script>
 
 <template>
   <div>
-    <transition name="slide-fade">
+    <transition name="slide-fade" @after-leave="onTransitionEnd">
       <DataTable
         v-if="tableBar"
         v-model:selection="usersStore.selectedUser"
@@ -62,7 +69,7 @@ const tableBarOpen = () => {
       </DataTable>
     </transition>
 
-    <transition name="slide-fade-reverse">
+    <transition v-if="transitionEnded" name="reverse-slide">
       <DataTable
         v-if="!tableBar"
         v-model:selection="usersStore.selectedUser"
@@ -109,11 +116,11 @@ const tableBarOpen = () => {
   transform: translateX(-100%);
 }
 
-.slide-fade-reverse-enter-active, .slide-fade-reverse-leave-active {
+.reverse-slide-enter-active, .reverse-slide-leave-active {
   transition: all 0.3s ease;
 }
 
-.slide-fade-reverse-enter-from, .slide-fade-reverse-leave-to {
+.reverse-slide-enter-from, .reverse-slide-leave-to {
   transform: translateX(100%);
 }
 </style>
