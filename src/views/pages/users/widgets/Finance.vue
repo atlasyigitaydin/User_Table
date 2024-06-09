@@ -3,5 +3,7 @@ const userStore = useUsersStore()
 </script>
 
 <template>
-  <CreditCard v-if="userStore.selectedUser?.creditCard" :card="userStore.selectedUser?.creditCard" />
+  <div v-animateonscroll="{ enterClass: 'fadeinright', leaveClass: 'fadeoutright' }" class="animation-duration-1000 animation-ease-in-out">
+    <CreditCard v-if="userStore.selectedUser?.finance.creditCard" :card="userStore.selectedUser?.finance.creditCard" />
+  </div>
 </template>

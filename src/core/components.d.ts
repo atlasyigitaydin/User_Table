@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    Chat: typeof import('./../views/components/Chat.vue')['default']
     Column: typeof import('primevue/column')['default']
     CreditCard: typeof import('./../views/components/CreditCard.vue')['default']
     DataTable: typeof import('primevue/datatable')['default']
@@ -15,6 +16,7 @@ declare module '@vue/runtime-core' {
     NavBar: typeof import('./../views/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Skeleton: typeof import('primevue/skeleton')['default']
     TabMenu: typeof import('primevue/tabmenu')['default']
     TheFooter: typeof import('./../views/components/TheFooter.vue')['default']
     TheHeader: typeof import('./../views/components/TheHeader.vue')['default']

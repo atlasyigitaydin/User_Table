@@ -14,7 +14,7 @@ import Discover from '../../assets/image/discover.png'
 import type { User } from '~/core/types'
 
 const props = defineProps<{
-  card: User['creditCard']
+  card: User['finance']['creditCard']
 }>()
 
 const currentBg = computed(() => {
@@ -58,8 +58,8 @@ onClickOutside(() => {
 
 <template>
   <div
-    style="height: 350px; width: 620px;"
-    :class="`bg-gray-900 relative border-round-xl ${currentBg === Bg1 || currentBg === Bg2 || currentBg === Bg3 ? 'text-gray-900' : ''}`"
+    style="height: 350px; width: 620px; background-color: var(--surface-0);"
+    :class="`relative border-round-xl ${currentBg === Bg1 || currentBg === Bg2 || currentBg === Bg3 ? 'text-gray-900' : ''}`"
   >
     <img class="shadow-8 border-round-xl absolute left-0 top-0 z-4 m-3" width="500" height="250" :src="currentBg">
     <div style="width: 500px; height: 250px;" class="flex flex-column justify-content-around absolute m-3 z-5">
@@ -81,7 +81,7 @@ onClickOutside(() => {
         </div>
       </div>
     </div>
-    <img class="shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="500" height="250" :src="currentBg">
+    <img class=" shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="500" height="250" :src="currentBg">
     <div v-if="showCvv" style="width: 70px; height: 90px" class="flex text-2xl absolute opacity-40 bottom-0 right-0 m-3 z-5">
       {{ props.card.cvv }}
     </div>

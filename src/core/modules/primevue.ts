@@ -5,6 +5,7 @@ import ToastService from 'primevue/toastservice'
 import Tooltip from 'primevue/tooltip'
 import Ripple from 'primevue/ripple'
 import BadgeDirective from 'primevue/badgedirective'
+import AnimateOnScroll from 'primevue/animateonscroll'
 
 import type { App } from 'vue'
 import type { RVModule } from '~/core/types'
@@ -21,4 +22,5 @@ export const install: RVModule = ({ app }: { app: App<Element> }) => {
   app.directive('ripple', Ripple)
   app.directive('tooltip', Tooltip)
   app.directive('badge', BadgeDirective)
+  app.directive('animateonscroll', AnimateOnScroll)
 }

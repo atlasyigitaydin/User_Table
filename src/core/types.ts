@@ -19,7 +19,9 @@ export interface RVMeta extends RouteMeta {
 }
 
 export interface User {
+  id: string
   fullName: string
+  email: string
   avatar: {
     large: string
     medium: string
@@ -27,12 +29,14 @@ export interface User {
   }
   status: 'Online' | 'Sleep' | 'Offline' | 'Busy'
   vip: boolean
-  creditCard: {
-    no: string
-    date: string
-    name: string
-    cvv: string
-    issuer: string
-    img: number
+  finance: {
+    creditCard: {
+      no: string
+      date: string
+      name: string
+      cvv: string
+      issuer: string
+      img: number
+    }
   }
 }
