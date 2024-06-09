@@ -47,5 +47,7 @@ export interface User {
       symbol: string
     }
     iban: string
+    monthDiffAmount: string
+    liability: boolean
   }
 }

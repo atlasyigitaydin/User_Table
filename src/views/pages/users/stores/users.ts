@@ -40,6 +40,8 @@ export const useUsersStore = defineStore('Users', () => {
           amount: faker.finance.amount(),
           currency: faker.finance.currency(),
           iban: faker.finance.iban(),
+          monthDiffAmount: (Math.random() * 40).toFixed(2),
+          liability: !!(Math.random() < 0.5),
         },
       })
     }

@@ -6,12 +6,15 @@ import Finance from './widgets/Finance.vue'
 
 <template>
   <UsersTable />
-  <div class="gap-2 flex flex-column w-full h-full flex align-items-start">
+  <div v-if="useUsersStore().selectedUser" class="gap-2 flex flex-column w-full h-full flex align-items-start">
     <NavBar />
-    <div class="flex flex-wrap gap-2 w-full">
+    <div class="flex flex-wrap w-full">
       <Finance />
       <!-- <Social /> -->
     </div>
+  </div>
+  <div v-else class="w-full h-full flex justify-content-center align-items-center">
+    {{ "Please Select User" }}
   </div>
 </template>
 
