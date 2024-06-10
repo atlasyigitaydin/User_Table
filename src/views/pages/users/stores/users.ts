@@ -66,9 +66,17 @@ export const useUsersStore = defineStore('Users', () => {
     selectedUser.value = users.value[0]
   }
 
+  const chartData = ref<string>()
+  const setChartData = () => {
+
+  }
+
   return {
     users,
     selectedUser,
     setUsers,
+
+    chartData,
+    setChartData,
   }
 })

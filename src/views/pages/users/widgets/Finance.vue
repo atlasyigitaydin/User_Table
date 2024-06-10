@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TransactionsTable from './TransactionsTable.vue'
+import TransactionsChart from './TransactionsChart.vue'
 const userStore = useUsersStore()
 </script>
 
@@ -10,7 +11,7 @@ const userStore = useUsersStore()
       class="flex justify-content-between gap-2 w-full"
     >
       <div class="w-full pl-2 h-full overflow-hidden">
-        .
+        <TransactionsChart />
       </div>
       <div class="flex gap-2 pr-2">
         <div class="flex flex-column gap-2">

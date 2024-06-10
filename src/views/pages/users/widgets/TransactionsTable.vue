@@ -78,7 +78,6 @@ const dateGetter = (_date: Date) => {
       sortable
       responsive-layout="scroll"
       paginator
-      table-class="w-full"
       :rows="20"
       style="background-color: var(--surface-0);"
       class="shadow-6 opacity-100 overflow-y-hidden absolute z-5 top-0 pb-2 overflow-x-auto surface-border border-1 border-round m-2"
