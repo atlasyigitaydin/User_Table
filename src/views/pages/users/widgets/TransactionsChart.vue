@@ -4,27 +4,43 @@ const userStore = useUsersStore()
 const chartData = ref()
 const chartOptions = ref()
 
+const dataset = ref({
+  buy: [],
+  sell: [],
+})
+
+const setDataset = () => {
+  const getRandomNumber = () => {
+    return Math.floor(Math.random() * (1000 * 4 - 100 + 1)) + 100
+  }
+  dataset.value.buy = Array.from({ length: 12 }, () => getRandomNumber())
+  dataset.value.sell = Array.from({ length: 12 }, () => getRandomNumber())
+}
+
 const setChartData = () => {
   const documentStyle = getComputedStyle(document.documentElement)
 
   return {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December',
+    ],
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Sell',
         fill: false,
         borderColor: documentStyle.getPropertyValue('--green-400'),
         yAxisID: 'y',
         tension: 0.4,
-        data: [65, 59, 80, 81, 56, 55, 10],
+        data: dataset.value.buy,
       },
       {
-        label: 'Dataset 2',
+        label: 'Buy',
         fill: false,
         borderColor: documentStyle.getPropertyValue('--red-400'),
         yAxisID: 'y1',
         tension: 0.4,
-        data: [28, 48, 40, 19, 86, 27, 90],
+        data: dataset.value.sell,
       },
     ],
   }
@@ -84,14 +100,12 @@ const setChartOptions = () => {
 
 watch(
   () => userStore.selectedUser,
-  async (newUser) => {
-    await userStore.setChartData(newUser)
+  (newUser) => {
+    setDataset()
   },
 )
-
-onMounted(async () => {
-  await userStore.setChartData(userStore.selectedUser)
-
+onMounted(() => {
+  setDataset()
   chartData.value = setChartData()
   chartOptions.value = setChartOptions()
 })

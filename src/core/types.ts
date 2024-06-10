@@ -60,16 +60,3 @@ export interface User {
     }[]
   }
 }
-
-export interface ChartData {
-  '2024': {
-    month: number
-    amount: number
-    liability: boolean
-  }[]
-  '2023': {
-    month: number
-    amount: number
-    liability: boolean
-  }[]
-}
