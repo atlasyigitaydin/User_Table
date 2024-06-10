@@ -67,6 +67,7 @@ const openTable = ref<boolean>(true)
         </template>
       </Column>
       <Column header="Description" field="description" />
+      <Column header="Depth" field="depth" />
       <Column header="IBAN" field="iban" />
       <Column header="Name" field="name" />
       <template #paginatorstart>
@@ -91,7 +92,7 @@ const openTable = ref<boolean>(true)
 }
 
 .table-open-enter-to, .table-open-leave-from {
-  max-height: 500px;
+  max-height: 562px;
 }
 
 .table-openBig-enter-active, .table-openBig-leave-active {

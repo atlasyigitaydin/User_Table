@@ -4,9 +4,9 @@ const userStore = useUsersStore()
 </script>
 
 <template>
-  <div class="h-full flex flex-column overflow-hidden">
+  <div class="h-full w-full flex flex-column overflow-hidden">
     <div
-      style="height: 500px;"
+      style="height: 406px;"
       class="flex justify-content-end animation-duration-1000 animation-ease-in-out gap-2 w-full px-2"
     >
       <div class="flex flex-column gap-2">

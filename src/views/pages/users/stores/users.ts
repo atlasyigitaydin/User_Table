@@ -55,6 +55,7 @@ export const useUsersStore = defineStore('Users', () => {
                 description: faker.commerce.productDescription(),
                 liability: !!(Math.random() < 0.5),
                 date: faker.date.between({ from: '2023-01-01T00:00:00.000Z', to: '2024-12-30T00:00:00.000Z' }),
+                depth: !!(Math.random() < 0.5),
               })
             }
             return transactions

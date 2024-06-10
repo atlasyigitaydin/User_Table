@@ -50,6 +50,7 @@ export interface User {
     monthDiffAmount: string
     liability: boolean
     transactions: {
+      depth: boolean
       name: string
       date: Date
       iban: string

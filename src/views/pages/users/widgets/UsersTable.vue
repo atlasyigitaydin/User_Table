@@ -6,21 +6,16 @@ onMounted(async () => {
 })
 
 const tableBar = ref<boolean>(true)
+const tableBarSmall = ref<boolean>(false)
 
 const tableBarOpen = () => {
   tableBar.value = !tableBar.value
-}
-
-const transitionEnded = ref<boolean>(true)
-
-const onTransitionEnd = () => {
-  transitionEnded.value = true
 }
 </script>
 
 <template>
   <div>
-    <transition name="slide-fade" @after-leave="onTransitionEnd">
+    <transition name="slide" @after-leave="tableBarSmall = true">
       <DataTable
         v-if="tableBar"
         v-model:selection="usersStore.selectedUser"
@@ -67,9 +62,9 @@ const onTransitionEnd = () => {
       </DataTable>
     </transition>
 
-    <transition name="reverse-slide">
+    <transition name="slide" @after-leave="tableBar = true">
       <DataTable
-        v-if="!tableBar"
+        v-if="tableBarSmall"
         v-model:selection="usersStore.selectedUser"
         :row-hover="true"
         :header="false"
@@ -105,19 +100,15 @@ const onTransitionEnd = () => {
 </template>
 
 <style scoped>
-.slide-fade-enter-active, .slide-fade-leave-active {
-  transition: all 0.3s ease;
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.4s ease;
 }
 
-.slide-fade-enter-from, .slide-fade-leave-to {
+.slide-enter-from, .slide-leave-to {
   transform: translateX(-100%);
 }
 
-.reverse-slide-enter-active, .reverse-slide-leave-active {
-  transition: all 0.3s ease;
-}
-
-.reverse-slide-enter-from, .reverse-slide-leave-to {
-  transform: translateX(-100%);
+.slide-enter-to, .slide-leave-from {
+  transform: translateX(0%);
 }
 </style>
