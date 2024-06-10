@@ -10,6 +10,23 @@ export const useUsersStore = defineStore('Users', () => {
     return statuses[Math.floor(Math.random() * statuses.length)]
   }
 
+  const transactions: User['finance']['transactions'] = []
+  const getRandomTransaction = () => {
+    transactions.length = 0
+    const transactionCount = Math.floor(Math.random() * 200)
+    for (let i = 0; i < transactionCount; i++) {
+      transactions.push({
+        name: faker.person.fullName(),
+        amount: faker.commerce.price(),
+        iban: faker.finance.iban(),
+        description: faker.commerce.productDescription(),
+        liability: !!(Math.random() < 0.5),
+        date: faker.date.between({ from: '2023-01-01T00:00:00.000Z', to: '2024-11-30T00:00:00.000Z' }),
+      })
+    }
+    return transactions
+  }
+
   const selectedUser = ref<User>()
 
   const setUsers = async () => {
@@ -42,6 +59,7 @@ export const useUsersStore = defineStore('Users', () => {
           iban: faker.finance.iban(),
           monthDiffAmount: (Math.random() * 40).toFixed(2),
           liability: !!(Math.random() < 0.5),
+          transactions: getRandomTransaction(),
         },
       })
     }

@@ -81,7 +81,7 @@ onClickOutside(() => {
         </div>
       </div>
     </div>
-    <img class=" shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="500" height="250" src="currentBg">
+    <img class="shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="500" height="250" :src="currentBg">
     <div v-if="showCvv" style="width: 70px; height: 90px" class="flex text-2xl absolute opacity-40 bottom-0 right-0 m-3 z-5">
       {{ props.card.cvv }}
     </div>

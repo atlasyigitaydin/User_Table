@@ -24,7 +24,6 @@ const onTransitionEnd = () => {
       <DataTable
         v-if="tableBar"
         v-model:selection="usersStore.selectedUser"
-        striped-rows
         :row-hover="true"
         :header="false"
         :value="usersStore.users"
@@ -68,11 +67,10 @@ const onTransitionEnd = () => {
       </DataTable>
     </transition>
 
-    <transition v-if="transitionEnded" name="reverse-slide">
+    <transition name="reverse-slide">
       <DataTable
         v-if="!tableBar"
         v-model:selection="usersStore.selectedUser"
-        striped-rows
         :row-hover="true"
         :header="false"
         :value="usersStore.users"
@@ -120,6 +118,6 @@ const onTransitionEnd = () => {
 }
 
 .reverse-slide-enter-from, .reverse-slide-leave-to {
-  transform: translateX(100%);
+  transform: translateX(-100%);
 }
 </style>

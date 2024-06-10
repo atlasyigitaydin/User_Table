@@ -8,7 +8,7 @@ import Finance from './widgets/Finance.vue'
   <UsersTable />
   <div v-if="useUsersStore().selectedUser" class="gap-2 flex flex-column w-full h-full flex align-items-start">
     <NavBar />
-    <div class="flex flex-wrap w-full mt-4">
+    <div class="flex flex-wrap h-full overflow-hidden w-full mt-4">
       <Finance />
       <!-- <Social /> -->
     </div>

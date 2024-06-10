@@ -40,9 +40,9 @@ const userStore = useUsersStore()
         </div>
       </div>
     </div>
-    <div class="flex justify-content-end w-full h-4rem">
+    <div class="flex justify-content-end w-full h-4rem mr-2">
       <TabMenu v-model:activeIndex="active" class="white-space-nowrap border-round-left" :model="items" />
-      <Button class="border-noround h-3rem" style="background-color: var(--surface-0);" :icon="`pi pi-${isDark ? 'sun text-yellow-400' : 'moon text-gray-900'}`" link @click="toggleDark()" />
+      <Button class="border-noround h-3rem border-round-right" style="background-color: var(--surface-0);" :icon="`pi pi-${isDark ? 'sun text-yellow-400' : 'moon text-gray-900'}`" link @click="toggleDark()" />
     </div>
   </div>
 </template>

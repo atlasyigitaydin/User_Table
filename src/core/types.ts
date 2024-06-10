@@ -49,5 +49,13 @@ export interface User {
     iban: string
     monthDiffAmount: string
     liability: boolean
+    transactions: {
+      date: Date
+      iban: string
+      name: string
+      amount: string
+      liability: boolean
+      description: string
+    }[]
   }
 }
