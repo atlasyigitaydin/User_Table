@@ -58,18 +58,18 @@ onClickOutside(() => {
 
 <template>
   <div
-    style="height: 350px; width: 620px;"
+    style="height: 300px; width: 520px;"
     :class="`relative border-round-xl ${currentBg === Bg1 || currentBg === Bg2 || currentBg === Bg3 ? 'text-gray-900' : ''}`"
   >
-    <img class="shadow-8 border-round-xl absolute left-0 top-0 z-4 m-3" width="500" height="250" :src="currentBg">
-    <div style="width: 500px; height: 250px;" class="flex flex-column justify-content-around absolute m-3 z-5">
+    <img class="shadow-8 border-round-xl absolute left-0 top-0 z-4 m-3" width="400" height="200" :src="currentBg">
+    <div style="width: 400px; height: 200px;" class="flex flex-column justify-content-around absolute m-3 z-5">
       <div class="flex justify-content-between mx-4">
-        <Image width="60" height="49" class="" :src="Chip" />
+        <Image width="50" height="39" class="" :src="Chip" />
         <div class="overflow-hidden h-5rem w-5rem">
-          <Image :src="currentIssuer" width="75" />
+          <Image :src="currentIssuer" width="65" />
         </div>
       </div>
-      <div class="w-full text-3xl flex justify-content-center font-semibold">
+      <div class="w-full text-xl flex justify-content-center font-semibold">
         {{ props.card.no.split('-').join(' ') }}
       </div>
       <div class="flex w-full justify-content-around">
@@ -81,8 +81,8 @@ onClickOutside(() => {
         </div>
       </div>
     </div>
-    <img class="shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="500" height="250" :src="currentBg">
-    <div v-if="showCvv" style="width: 70px; height: 90px" class="flex text-2xl absolute opacity-40 bottom-0 right-0 m-3 z-5">
+    <img class="shadow-8 border-round-xl absolute right-0 bottom-0 m-3 opacity-40" width="400" height="200" :src="currentBg">
+    <div v-if="showCvv" style="width: 60px; height: 80px" class="flex text-2xl absolute opacity-40 bottom-0 right-0 m-3 z-5">
       {{ props.card.cvv }}
     </div>
     <Button v-else ref="buttonIdCvv" icon="pi pi-eye text-2xl" class="flex text-2xl absolute opacity-40 bottom-0 right-0 mb-7 mr-6 z-5" link @click="showCvv = true" />

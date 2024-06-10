@@ -53,7 +53,10 @@ const dateGetter = (_date: Date) => {
       </Column>
       <Column header="Buyer Name">
         <template #body="data">
-          .
+          <div class="flex flex-column">
+            <label> {{ data.data.name }} </label>
+            <label class="text-sm text-gray-400"> {{ `iban: ${data.data.iban}` }} </label>
+          </div>
         </template>
       </Column>
       <Column header="Description" field="description" />
@@ -75,6 +78,7 @@ const dateGetter = (_date: Date) => {
       sortable
       responsive-layout="scroll"
       paginator
+      table-class="w-full"
       :rows="20"
       style="background-color: var(--surface-0);"
       class="shadow-6 opacity-100 overflow-y-hidden absolute z-5 top-0 pb-2 overflow-x-auto surface-border border-1 border-round m-2"
@@ -85,16 +89,35 @@ const dateGetter = (_date: Date) => {
           <Button icon="pi pi-window-maximize" link @click="openTable = !openTable" />
         </div>
       </template>
-      <Column header="Date" field="date" />
+      <Column header="Paid">
+        <template #body="data">
+          <div v-if="data.data.depth" class="pi pi-money-bill text-green-400" />
+          <div v-else class="pi pi-money-bill text-gray-400" />
+        </template>
+      </Column>
+      <Column header="Date" field="date">
+        <template #body="data">
+          {{ dateGetter(data.data.date) }}
+        </template>
+      </Column>
       <Column class="w-10rem" header="Amount">
         <template #body="data">
-          <label> {{ `${data.data.amount} ${userStore.selectedUser?.finance.currency.symbol ?? userStore.selectedUser?.finance.currency.code}` }} </label>
+          <div class="flex gap-2 w-full justify-content-between">
+            <div v-if="data.data.liability" class="text-green-400 pi pi-arrow-up" />
+            <div v-else class="pi pi-arrow-down text-red-400" />
+            <label> {{ `${data.data.amount} ${userStore.selectedUser?.finance.currency.symbol ?? userStore.selectedUser?.finance.currency.code}` }} </label>
+          </div>
+        </template>
+      </Column>
+      <Column header="Buyer Name">
+        <template #body="data">
+          <div class="flex flex-column">
+            <label> {{ data.data.name }} </label>
+            <label class="text-sm text-gray-400"> {{ `iban: ${data.data.iban}` }} </label>
+          </div>
         </template>
       </Column>
       <Column header="Description" field="description" />
-      <Column header="Depth" field="depth" />
-      <Column header="IBAN" field="iban" />
-      <Column header="Name" field="name" />
       <template #paginatorstart>
         <label class="white-space-nowrap w-10rem"> {{ `Total count: ${userStore.selectedUser?.finance.transactions.length}` }} </label>
       </template>
