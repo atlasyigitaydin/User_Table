@@ -12,7 +12,7 @@ const userStore = useUsersStore()
       <div class="flex flex-column gap-2">
         <div
           style="background-color: var(--surface-0);"
-          class="flex justify-content-between align-items-center border-round p-2 w-full h-3rem"
+          class="flex justify-content-between align-items-center border-round p-2 w-full h-3rem shadow-6"
         >
           <label class="text-gray-400"> {{ "Iban" }} </label>
           <label class="flex"> {{ userStore.selectedUser?.finance.iban }} </label>
@@ -23,7 +23,7 @@ const userStore = useUsersStore()
       <div class="flex flex-column justify-content-between w-min-16rem gap-2">
         <div
           style="background-color: var(--surface-0);"
-          class="flex flex-column justify-content-between border-round h-full p-1 w-10rem"
+          class="flex flex-column justify-content-between border-round h-full p-1 w-10rem shadow-6"
         >
           <label class="w-full flex justify-content-end text-gray-400 px-2 text-right"> {{ "Bank Account" }} </Label>
           <label class="text-gray-600 pt-2">{{ "Amount:" }}</label>
@@ -34,7 +34,7 @@ const userStore = useUsersStore()
         </div>
         <div
           style="background-color: var(--surface-0);"
-          class="flex flex-column justify-content-between border-round h-full p-1 w-10rem"
+          class="flex flex-column justify-content-between border-round h-full p-1 w-10rem shadow-6"
         >
           <label class="w-full flex justify-content-end text-gray-400 px-2 text-right"> {{ "Compared to Last Month" }} </Label>
           <div class="flex flex-column justify-content-center align-items-center w-full h-full gap-1">

@@ -15,7 +15,7 @@ const userStore = useUsersStore()
 <template>
   <div class="w-full flex justify-content-between pt-2 h-4rem z-5">
     <div class="w-full flex justify-content-center">
-      <div style="background-color: var(--surface-0);" class="flex border-round gap-3 py-2 px-3">
+      <div style="background-color: var(--surface-0);" class="shadow-6 flex border-round gap-3 py-2 px-3">
         <div v-if="userStore.selectedUser.vip" class="flex flex-column justify-content-around">
           <div class="pi pi-crown flex mx-2 justify-content-center align-items-center text-indigo-400 text-2xl" />
           <label class="flex w-full justify-content-center text-indigo-400"> {{ "VIP" }} </label>
@@ -40,7 +40,7 @@ const userStore = useUsersStore()
         </div>
       </div>
     </div>
-    <div class="flex justify-content-end w-full h-4rem mr-2">
+    <div class="flex shadow-6 h-3rem mr-2">
       <TabMenu v-model:activeIndex="active" class="white-space-nowrap border-round-left" :model="items" />
       <Button class="border-noround h-3rem border-round-right" style="background-color: var(--surface-0);" :icon="`pi pi-${isDark ? 'sun text-yellow-400' : 'moon text-gray-900'}`" link @click="toggleDark()" />
     </div>
