@@ -6,16 +6,11 @@ onMounted(async () => {
 })
 
 const tableBar = ref<boolean>(true)
-const tableBarSmall = ref<boolean>(false)
-
-const tableBarOpen = () => {
-  tableBar.value = !tableBar.value
-}
 </script>
 
 <template>
   <div>
-    <transition name="slide" @after-leave="tableBarSmall = true">
+    <transition name="slide">
       <DataTable
         v-if="tableBar"
         v-model:selection="usersStore.selectedUser"
@@ -53,7 +48,7 @@ const tableBarOpen = () => {
         </Column>
         <Column>
           <template #header>
-            <Button icon="pi pi-arrow-left" link class="w-full h-full justify-content-center align-items-center flex" @click="tableBarOpen" />
+            <Button icon="pi pi-arrow-left" link class="w-full h-full justify-content-center align-items-center flex" @click="tableBar = !tableBar" />
           </template>
           <template #body="data">
             <div v-if="data.data.social.status === 'Online'" class="pi pi-circle-fill text-xs text-green-400" />
@@ -62,9 +57,9 @@ const tableBarOpen = () => {
       </DataTable>
     </transition>
 
-    <transition name="slide" @after-leave="tableBar = true">
+    <transition name="slide">
       <DataTable
-        v-if="tableBarSmall"
+        v-if="!tableBar"
         v-model:selection="usersStore.selectedUser"
         :row-hover="true"
         :header="false"
@@ -77,7 +72,7 @@ const tableBarOpen = () => {
       >
         <Column>
           <template #header>
-            <Button icon="pi pi-arrow-right" link class="w-2rem h-2rem justify-content-center align-items-center flex" @click="tableBarOpen" />
+            <Button icon="pi pi-arrow-right" link class="w-2rem h-2rem justify-content-center align-items-center flex" @click="tableBar = !tableBar" />
           </template>
           <template #body="data">
             <div
