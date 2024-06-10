@@ -11,7 +11,6 @@ const tableBarOpen = () => {
   tableBar.value = !tableBar.value
 }
 
-// Geçiş animasyonlarının bittiğini izlemek için ref
 const transitionEnded = ref<boolean>(true)
 
 const onTransitionEnd = () => {
@@ -47,7 +46,7 @@ const onTransitionEnd = () => {
               }"
               class="relative border-3 border-circle overflow-hidden w-3rem h-3rem"
             >
-              <Image width="100%" height="100%" :src="data.data.avatar.thumbnail" />
+              <Image width="45" height="45" :src="data.data.avatar.thumbnail" />
             </div>
           </template>
         </Column>
@@ -98,7 +97,7 @@ const onTransitionEnd = () => {
               }"
               class="relative border-3 border-circle overflow-hidden w-3rem h-3rem"
             >
-              <Image width="100%" height="100%" :src="data.data.avatar.thumbnail" />
+              <Image width="45" height="45" :src="data.data.avatar.thumbnail" />
             </div>
           </template>
         </Column>
