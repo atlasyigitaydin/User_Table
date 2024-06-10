@@ -51,7 +51,7 @@ const dateGetter = (_date: Date) => {
           </div>
         </template>
       </Column>
-      <Column header="Buyer Name">
+      <Column header="Account Name">
         <template #body="data">
           <div class="flex flex-column">
             <label> {{ data.data.name }} </label>
@@ -108,7 +108,7 @@ const dateGetter = (_date: Date) => {
           </div>
         </template>
       </Column>
-      <Column header="Buyer Name">
+      <Column header="Account Name">
         <template #body="data">
           <div class="flex flex-column">
             <label> {{ data.data.name }} </label>

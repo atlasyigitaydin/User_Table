@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    Chart: typeof import('primevue/chart')['default']
     Chat: typeof import('./../views/components/Chat.vue')['default']
     Column: typeof import('primevue/column')['default']
     CreditCard: typeof import('./../views/components/CreditCard.vue')['default']

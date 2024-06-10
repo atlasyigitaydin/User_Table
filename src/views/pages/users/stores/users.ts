@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 import { uuid } from 'vue-uuid'
-import type { User } from '~/core/types'
+import type { ChartData, User } from '~/core/types'
 
 export const useUsersStore = defineStore('Users', () => {
   const users
@@ -66,9 +66,52 @@ export const useUsersStore = defineStore('Users', () => {
     selectedUser.value = users.value[0]
   }
 
-  const chartData = ref<string>()
-  const setChartData = () => {
+  const chartData = ref<ChartData>({
+    2023: [],
+    2024: [],
+  })
 
+  const setChartData = async (_user: User) => {
+    // Initialize chartData with empty arrays for 2023 and 2024
+    chartData.value = {
+      2023: [],
+      2024: [],
+    }
+
+    // Initialize an object to accumulate the amounts by month and year
+    const dataAccumulator: { [year: number]: { [month: number]: { amount: number; liability: boolean } } } = {
+      2023: {},
+      2024: {},
+    }
+
+    // Iterate over the transactions and accumulate amounts
+    _user.finance.transactions.forEach((o) => {
+      const year = o.date.getFullYear()
+      if (year === 2024 || year === 2023) {
+        const month = o.date.getMonth() + 1
+
+        // Initialize the accumulator for this month if not already present
+        if (!dataAccumulator[year][month])
+          dataAccumulator[year][month] = { amount: 0, liability: false }
+
+        // Adjust the amount based on the liability flag
+        if (o.liability)
+          dataAccumulator[year][month].amount -= o.amount
+        else
+          dataAccumulator[year][month].amount += o.amount
+      }
+    })
+
+    // Convert the accumulated data to the desired chartData format
+    for (const year in dataAccumulator) {
+      for (const month in dataAccumulator[year]) {
+        chartData.value[year].push({
+          month: parseInt(month, 10),
+          amount: dataAccumulator[year][month].amount,
+          liability: dataAccumulator[year][month].liability,
+        })
+      }
+    }
   }
 
   return {
