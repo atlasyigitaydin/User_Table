@@ -65,7 +65,6 @@ export const useUsersStore = defineStore('Users', () => {
     }
     selectedUser.value = users.value[0]
   }
-
   return {
     users,
     selectedUser,
