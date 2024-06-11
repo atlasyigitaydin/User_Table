@@ -1,6 +1,6 @@
 import type { RouteMeta, Router } from 'vue-router'
 import type { MenuItem } from 'primevue/menuitem'
-import type { App, ComputedRef } from 'vue'
+import type { App } from 'vue'
 import type { I18n } from 'vue-i18n'
 
 export type RVModule = (ctx: { app: App<Element>; router: Router; i18n: I18n }) => void

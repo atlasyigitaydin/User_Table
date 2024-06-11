@@ -15,7 +15,7 @@ const dateGetter = (_date: Date) => {
   <Transition name="table-open">
     <DataTable
       v-if="openTable"
-      :value="userStore.selectedUser?.finance.transactions"
+      :value="userStore.selectedUser?.finance.transactions()"
       scroll-height="flex"
       scrollable
       sortable
@@ -45,8 +45,8 @@ const dateGetter = (_date: Date) => {
       <Column class="w-10rem" header="Amount">
         <template #body="data">
           <div class="flex gap-2 w-full justify-content-between">
-            <div v-if="data.data.liability" class="text-green-400 pi pi-arrow-up" />
-            <div v-else class="pi pi-arrow-down text-red-400" />
+            <div v-if="data.data.liability" class="text-green-400 pi pi-arrow-left" />
+            <div v-else class="pi pi-arrow-right text-red-400" />
             <label> {{ `${data.data.amount} ${userStore.selectedUser?.finance.currency.symbol ?? userStore.selectedUser?.finance.currency.code}` }} </label>
           </div>
         </template>
@@ -61,7 +61,7 @@ const dateGetter = (_date: Date) => {
       </Column>
       <Column header="Description" field="description" />
       <template #paginatorstart>
-        <label class="white-space-nowrap w-10rem"> {{ `Total count: ${userStore.selectedUser?.finance.transactions.length}` }} </label>
+        <label class="white-space-nowrap w-10rem"> {{ `Total count: ${userStore.selectedUser?.finance.transactions().length}` }} </label>
       </template>
       <template #paginatorend>
         <div class="w-10rem" />
@@ -72,7 +72,7 @@ const dateGetter = (_date: Date) => {
   <Transition name="table-openBig">
     <DataTable
       v-if="!openTable"
-      :value="userStore.selectedUser?.finance.transactions"
+      :value="userStore.selectedUser?.finance.transactions()"
       scroll-height="flex"
       scrollable
       sortable
@@ -118,7 +118,7 @@ const dateGetter = (_date: Date) => {
       </Column>
       <Column header="Description" field="description" />
       <template #paginatorstart>
-        <label class="white-space-nowrap w-10rem"> {{ `Total count: ${userStore.selectedUser?.finance.transactions.length}` }} </label>
+        <label class="white-space-nowrap w-10rem"> {{ `Total count: ${userStore.selectedUser?.finance.transactions().length}` }} </label>
       </template>
       <template #paginatorend>
         <div class="w-10rem" />

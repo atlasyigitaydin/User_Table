@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     Column: typeof import('primevue/column')['default']
     CreditCard: typeof import('./../views/components/CreditCard.vue')['default']
     DataTable: typeof import('primevue/datatable')['default']
+    Dialog: typeof import('primevue/dialog')['default']
     Image: typeof import('primevue/image')['default']
     NavBar: typeof import('./../views/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

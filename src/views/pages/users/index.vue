@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UsersTable from './widgets/UsersTable.vue'
 import Finance from './widgets/Finance.vue'
+import NavBar from './widgets/NavBar.vue'
 // import Social from './widgets/Social.vue'
 const usersStore = useUsersStore()
 onMounted(async () => {

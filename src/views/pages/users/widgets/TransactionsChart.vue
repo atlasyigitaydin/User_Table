@@ -19,7 +19,7 @@ const setChartData = () => {
         borderColor: documentStyle.getPropertyValue('--green-400'),
         yAxisID: 'y',
         tension: 0.4,
-        data: userStore.selectedUser?.finance.transactionsChart.sell,
+        data: userStore.selectedUser?.finance.transactionsChart.sell(),
       },
       {
         label: 'Buy',
@@ -27,7 +27,7 @@ const setChartData = () => {
         borderColor: documentStyle.getPropertyValue('--red-400'),
         yAxisID: 'y1',
         tension: 0.4,
-        data: userStore.selectedUser?.finance.transactionsChart.buy,
+        data: userStore.selectedUser?.finance.transactionsChart.buy(),
       },
     ],
   }

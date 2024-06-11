@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-
 const active = ref(0)
+const toast = useToast()
+
+const sendMessageDialog = ref<Boolean>(false)
 
 const items = ref([
   { label: 'User', icon: 'pi pi-user' },
@@ -38,6 +39,7 @@ const userStore = useUsersStore()
           />
           <label class="h-full flex align-items-center"> {{ userStore.selectedUser.social.status }} </label>
         </div>
+        <Button link icon="pi pi-envelope" @click="sendMessageDialog = true" />
       </div>
     </div>
     <div class="flex shadow-6 h-3rem mr-2">
@@ -45,4 +47,7 @@ const userStore = useUsersStore()
       <Button class="border-noround h-3rem border-round-right" style="background-color: var(--surface-0);" :icon="`pi pi-${isDark ? 'sun text-yellow-400' : 'moon text-gray-900'}`" link @click="toggleDark()" />
     </div>
   </div>
+  <Dialog v-model:visible="sendMessageDialog" modal :show-header="false" :footer="false" :closable="false">
+    fjoıdosjıflds
+  </Dialog>
 </template>
