@@ -1,10 +1,6 @@
 <script setup lang="ts">
 const usersStore = useUsersStore()
 
-onMounted(async () => {
-  await usersStore.setUsers()
-})
-
 const tableBar = ref<boolean>(true)
 </script>
 

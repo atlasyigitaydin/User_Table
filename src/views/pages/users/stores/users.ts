@@ -42,13 +42,35 @@ export const useUsersStore = defineStore('Users', () => {
           iban: faker.finance.iban(),
           monthDiffAmount: (Math.random() * 40).toFixed(2),
           liability: !!(Math.random() < 0.5),
-          // @ts-expect-error: Unreachable code error
-          transactions: computed(() => {
-            const transactions: User['finance']['transactions'] = []
-            transactions.length = 0
+          transactionsChart: {
+            buy: () => {
+              const temp = []
+              for(let i = 0 ; i < 12 ; i++)
+                  temp.push(Math.floor(Math.random() * 3000))
+              return temp
+            },
+            sell: () => {
+              const temp = [];
+              for (let i = 0; i < 12; i++) {
+                temp.push(Math.floor(Math.random() * 3000));
+              }
+              return temp;
+            }
+          },
+          transactions: () => {
+            const temp: {
+              depth: boolean;
+              name: string;
+              date: Date;
+              iban: string;
+              amount: string;
+              liability: boolean;
+              description: string;
+            }[] = []
+            temp.length = 0
             const transactionCount = Math.floor(Math.random() * 200)
             for (let i = 0; i < transactionCount; i++) {
-              transactions.push({
+              temp.push({
                 name: faker.person.fullName(),
                 amount: faker.commerce.price(),
                 iban: faker.finance.iban(),
@@ -58,8 +80,8 @@ export const useUsersStore = defineStore('Users', () => {
                 depth: !!(Math.random() < 0.5),
               })
             }
-            return transactions
-          }),
+            return temp
+          },
         },
       })
     }

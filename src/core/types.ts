@@ -1,6 +1,6 @@
 import type { RouteMeta, Router } from 'vue-router'
 import type { MenuItem } from 'primevue/menuitem'
-import type { App } from 'vue'
+import type { App, ComputedRef } from 'vue'
 import type { I18n } from 'vue-i18n'
 
 export type RVModule = (ctx: { app: App<Element>; router: Router; i18n: I18n }) => void
@@ -19,44 +19,49 @@ export interface RVMeta extends RouteMeta {
 }
 
 export interface User {
-  id: string
-  fullName: string
-  email: string
-  vip: boolean
+  id: string;
+  fullName: string;
+  email: string;
+  vip: boolean;
   avatar: {
-    large: string
-    medium: string
-    thumbnail: string
-  }
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
   social: {
-    status: 'Online' | 'Sleep' | 'Offline' | 'Busy'
-  }
+    status: 'Online' | 'Sleep' | 'Offline' | 'Busy';
+  };
   finance: {
     creditCard: {
-      no: string
-      date: string
-      name: string
-      cvv: string
-      issuer: string
-      img: number
-    }
-    amount: string
+      no: string;
+      date: string;
+      name: string;
+      cvv: string;
+      issuer: string;
+      img: number;
+    };
+    amount: string;
     currency: {
-      code: string
-      name: string
-      symbol: string
-    }
-    iban: string
-    monthDiffAmount: string
-    liability: boolean
-    transactions: {
-      depth: boolean
-      name: string
-      date: Date
-      iban: string
-      amount: string
-      liability: boolean
-      description: string
-    }[]
-  }
+      code: string;
+      name: string;
+      symbol: string;
+    };
+    iban: string;
+    monthDiffAmount: string;
+    liability: boolean;
+    transactions: () => {
+      depth: boolean;
+      name: string;
+      date: Date;
+      iban: string;
+      amount: string;
+      liability: boolean;
+      description: string;
+    }[];
+    transactionsChart: {
+      buy: () => number[]
+      sell: () => number[]
+    };
+  };
 }
+

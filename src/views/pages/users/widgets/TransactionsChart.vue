@@ -1,21 +1,8 @@
-<script setup>
+<script setup lang="ts">
 const userStore = useUsersStore()
 
 const chartData = ref()
 const chartOptions = ref()
-
-const dataset = ref({
-  buy: [],
-  sell: [],
-})
-
-const setDataset = () => {
-  const getRandomNumber = () => {
-    return Math.floor(Math.random() * (1000 * 4 - 100 + 1)) + 100
-  }
-  dataset.value.buy = Array.from({ length: 12 }, () => getRandomNumber())
-  dataset.value.sell = Array.from({ length: 12 }, () => getRandomNumber())
-}
 
 const setChartData = () => {
   const documentStyle = getComputedStyle(document.documentElement)
@@ -32,7 +19,7 @@ const setChartData = () => {
         borderColor: documentStyle.getPropertyValue('--green-400'),
         yAxisID: 'y',
         tension: 0.4,
-        data: dataset.value.buy,
+        data: userStore.selectedUser?.finance.transactionsChart.sell,
       },
       {
         label: 'Buy',
@@ -40,7 +27,7 @@ const setChartData = () => {
         borderColor: documentStyle.getPropertyValue('--red-400'),
         yAxisID: 'y1',
         tension: 0.4,
-        data: dataset.value.sell,
+        data: userStore.selectedUser?.finance.transactionsChart.buy,
       },
     ],
   }
@@ -98,14 +85,11 @@ const setChartOptions = () => {
   }
 }
 
-watch(
-  () => userStore.selectedUser,
-  (newUser) => {
-    setDataset()
-  },
-)
+watch(() => userStore.selectedUser, nw => {
+  chartData.value = setChartData()
+})
+
 onMounted(() => {
-  setDataset()
   chartData.value = setChartData()
   chartOptions.value = setChartOptions()
 })

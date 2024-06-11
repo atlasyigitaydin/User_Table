@@ -2,6 +2,10 @@
 import UsersTable from './widgets/UsersTable.vue'
 import Finance from './widgets/Finance.vue'
 // import Social from './widgets/Social.vue'
+const usersStore = useUsersStore()
+onMounted(async () => {
+  await usersStore.setUsers()
+})
 </script>
 
 <template>
