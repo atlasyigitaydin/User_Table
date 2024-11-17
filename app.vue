@@ -20,10 +20,10 @@ useHead({
       property: 'og:description',
       content: 'Ekran görüntüsü al, her cihazda yüksek kaliteli fotoğraflar elde et. Kolayca URL gir ve hemen indirmeye başla.',
     },
-    {
-      property: 'og:image',
-      content: 'https://wss.atlasyigitaydin.com',
-    },
+    // {
+    //   property: 'og:image',
+    //   content: 'https://wss.atlasyigitaydin.com',
+    // },
     {
       property: 'og:url',
       content: 'https://wss.atlasyigitaydin.com',
@@ -44,14 +44,10 @@ useHead({
       name: 'twitter:description',
       content: 'Hızlı ve yüksek kaliteli ekran görüntüsü alma aracı. URL girin, görüntüyü alın ve hemen indirin.',
     },
-    {
-      name: 'twitter:image',
-      content: 'https://wss.atlasyigitaydin.com',
-    },
-    {
-      name: 'robots',
-      content: 'index, follow',
-    },
+    // {
+    //   name: 'twitter:image',
+    //   content: 'https://wss.atlasyigitaydin.com',
+    // },
   ],
   link: [
     {
