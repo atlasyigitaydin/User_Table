@@ -14,16 +14,15 @@ export default defineEventHandler(async (event) => {
   }
 
   async function sendToTelegram(url: string) {
-    const message = `Ekran görüntüsü alındı: ${url}`
-
+    const message = `Ekran görüntüsü alındı: ${url ?? '<url_bilgisi_bulunamadı>'}`
     const telegramUrl = `https://api.telegram.org/bot${telegramConfig.botToken}/sendMessage`
 
-    await fetch(telegramUrl, {
+    await $fetch(telegramUrl, {
       method: 'POST',
-      body: JSON.stringify({
+      body: {
         chat_id: telegramConfig.chatId,
         text: message,
-      }),
+      },
       headers: { 'Content-Type': 'application/json' },
     })
   }
