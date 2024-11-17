@@ -17,16 +17,8 @@ export const useScreenShotStore = defineStore('screenshot', () => {
     loading.value = true
     await firebase.incrementCount()
 
-    const { data } = await useAsyncData<ScreenshotResponse>('screenshot', () =>
-      $fetch(`/api/screenshot?url=https://${removeHttps(url.value)}&width=${width.value}&deviceScaleFactor=${deviceScaleFactor.value}`))
-
-    if (data.value && data.value.screenshot) {
-      screenshot.value = data.value.screenshot
-    }
-    else {
-      console.error('Ekran görüntüsü alınamadı:', data.value?.message)
-    }
-
+    const { data } = await useFetch(`/api/screenshot?url=https://${removeHttps(url.value)}&width=${width.value}&deviceScaleFactor=${deviceScaleFactor.value}`)
+    screenshot.value = (data.value as ScreenshotResponse).screenshot
     loading.value = false
   }
 
