@@ -88,7 +88,6 @@ const isMobile = computed(() => screenshotStore.width === 375)
       <button
         :class="`${screenshotStore.screenshot ? 'lg:flex hidden' : ''} bg-gray-950 text-white flex items-center justify-center rounded text-lg py-1
           ${screenshotStore.url ? '' : 'cursor-auto opacity-70'}`"
-        @keyup.enter="screenshotStore.fetchSs()"
         @click="screenshotStore.fetchSs()"
       >
         {{ "Görüntüyü Yakala" }}

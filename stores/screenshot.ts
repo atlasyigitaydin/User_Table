@@ -1,7 +1,7 @@
 export const useScreenShotStore = defineStore('screenshot', () => {
   const firebase = useFirebaseStore()
 
-  const screenshot = ref(null)
+  const screenshot = ref<string>()
   const url = ref()
   const width = ref(1920)
   const deviceScaleFactor = ref<1 | 2 | 3>(1)
