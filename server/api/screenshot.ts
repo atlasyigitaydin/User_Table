@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
-import { useFirebaseStore } from '~/stores/firebase'
 
 const rateLimiter = new RateLimiterMemory({
   points: 5,
