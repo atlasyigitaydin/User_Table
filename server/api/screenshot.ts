@@ -1,3 +1,4 @@
+import { useFetch } from 'nuxt/app'
 import puppeteer from 'puppeteer'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
@@ -17,7 +18,7 @@ export default defineEventHandler(async (event) => {
     const message = `Ekran görüntüsü alındı: ${url ?? '<url_bilgisi_bulunamadı>'}`
     const telegramUrl = `https://api.telegram.org/bot${telegramConfig.botToken}/sendMessage`
 
-    await $fetch(telegramUrl, {
+    await useFetch(telegramUrl, {
       method: 'POST',
       body: {
         chat_id: telegramConfig.chatId,
