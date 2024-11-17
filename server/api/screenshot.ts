@@ -32,9 +32,9 @@ export default defineEventHandler(async (event) => {
   const width = Number.parseInt(query.width as string) || 1920
   const deviceScaleFactor = Number.parseFloat(query.deviceScaleFactor as string) || 1
 
-  const ip = Array.isArray(event.req.headers['x-forwarded-for'])
-    ? event.req.headers['x-forwarded-for'][0]
-    : event.req.headers['x-forwarded-for'] || event.req.connection.remoteAddress
+  const ip = Array.isArray(event.node.req.headers['x-forwarded-for'])
+    ? event.node.req.headers['x-forwarded-for'][0]
+    : event.node.req.headers['x-forwarded-for'] || event.node.req.socket.remoteAddress
 
   if (!ip || typeof ip !== 'string') {
     return {
