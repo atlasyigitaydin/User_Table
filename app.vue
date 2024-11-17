@@ -46,7 +46,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://yourdomain.com/screenshot-image.jpg',
+      content: 'https://wss.atlasyigitaydin.com',
     },
     {
       name: 'robots',
@@ -56,7 +56,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://yourdomain.com',
+      href: 'https://wss.atlasyigitaydin.com',
     },
   ],
 })
