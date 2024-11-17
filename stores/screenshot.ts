@@ -5,7 +5,7 @@ interface ScreenshotResponse {
 }
 
 export const useScreenShotStore = defineStore('screenshot', () => {
-  // const firebase = useFirebaseStore()
+  const firebase = useFirebaseStore()
 
   const screenshot = ref<string>()
   const url = ref()
@@ -15,7 +15,7 @@ export const useScreenShotStore = defineStore('screenshot', () => {
 
   const fetchSs = async () => {
     loading.value = true
-    // await firebase.incrementCount()
+    await firebase.incrementCount()
 
     const { data } = await useAsyncData<ScreenshotResponse>('screenshot', () =>
       $fetch(`/api/screenshot?url=https://${removeHttps(url.value)}&width=${width.value}&deviceScaleFactor=${deviceScaleFactor.value}`))

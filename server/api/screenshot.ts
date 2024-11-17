@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     chatId: runtimeConfig.public.telegram.chatId,
   }
 
-  async function sendToTelegram(url: string) {
+  const sendToTelegram = async (url: string) => {
     const message = `Ekran görüntüsü alındı: ${url ?? '<url_bilgisi_bulunamadı>'}`
     const telegramUrl = `https://api.telegram.org/bot${telegramConfig.botToken}/sendMessage`
 

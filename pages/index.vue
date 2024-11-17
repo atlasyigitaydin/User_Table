@@ -3,10 +3,10 @@ definePageMeta({
   name: 'home',
 })
 const router = useRouter()
-// const firebase = useFirebaseStore()
-// onMounted(async () => {
-//   await firebase.fetchCount()
-// })
+const firebase = useFirebaseStore()
+onMounted(async () => {
+  await firebase.fetchCount()
+})
 
 const fastCreateDisplay = ref<'lg' | 'md' | 'sm'>('lg')
 const fastCreateUrl = ref<string>('https://puanla.co')
