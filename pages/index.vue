@@ -3,10 +3,10 @@ definePageMeta({
   name: 'home',
 })
 const router = useRouter()
-const firebase = useFirebaseStore()
-onMounted(async () => {
-  await firebase.fetchCount()
-})
+// const firebase = useFirebaseStore()
+// onMounted(async () => {
+//   await firebase.fetchCount()
+// })
 
 const fastCreateDisplay = ref<'lg' | 'md' | 'sm'>('lg')
 const fastCreateUrl = ref<string>('https://puanla.co')
@@ -46,10 +46,10 @@ async function fast(url: string | undefined) {
         <label class="border-l pl-2 lg:border-gray-900 "> Hızlı sonuçlar alın. </label>
       </div>
 
-      <div class="text-lg">
+      <!-- <div class="text-lg">
         <label class="text-xl"> {{ firebase.count }} </label>
         <label> Adet Ekran Görüntüsü Alındı </label>
-      </div>
+      </div> -->
       <div class="flex items-end text-xl mt-6 gap-2 font-light">
         <button class="text-gray-950 lg:text-white lg:w-auto w-full bg-white lg:bg-gray-950 py-2 px-3 rounded flex justify-center lg:justify-start items-center gap-2" @click="router.push({ name: 'screenshot' })">
           Başlayın
