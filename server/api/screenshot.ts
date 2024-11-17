@@ -1,32 +1,32 @@
 import puppeteer from 'puppeteer'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
-const rateLimiter = new RateLimiterMemory({
-  points: 5,
-  duration: 60,
-})
-
-const runtimeConfig = useRuntimeConfig()
-const telegramConfig = {
-  botToken: runtimeConfig.public.telegram.botToken,
-  chatId: runtimeConfig.public.telegram.chatId,
-}
-
-async function sendToTelegram(url: string) {
-  const message = `Ekran görüntüsü alındı: ${url}`
-
-  const telegramUrl = `https://api.telegram.org/bot${telegramConfig.botToken}/sendMessage`
-
-  await fetch(telegramUrl, {
-    method: 'POST',
-    body: JSON.stringify({
-      chat_id: telegramConfig.chatId,
-      text: message,
-    }),
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
 export default defineEventHandler(async (event) => {
+  const rateLimiter = new RateLimiterMemory({
+    points: 5,
+    duration: 60,
+  })
+
+  const runtimeConfig = useRuntimeConfig()
+  const telegramConfig = {
+    botToken: runtimeConfig.public.telegram.botToken,
+    chatId: runtimeConfig.public.telegram.chatId,
+  }
+
+  async function sendToTelegram(url: string) {
+    const message = `Ekran görüntüsü alındı: ${url}`
+
+    const telegramUrl = `https://api.telegram.org/bot${telegramConfig.botToken}/sendMessage`
+
+    await fetch(telegramUrl, {
+      method: 'POST',
+      body: JSON.stringify({
+        chat_id: telegramConfig.chatId,
+        text: message,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
   const query = getQuery(event)
   const url = query.url as string
   const width = Number.parseInt(query.width as string) || 1920
