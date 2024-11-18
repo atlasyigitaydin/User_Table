@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   //   transpile: ['vue', '@vue/server-renderer'],
   // },
   devtools: { enabled: false },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@pinia/nuxt'],
   runtimeConfig: {
     public: {
       firebase: {
