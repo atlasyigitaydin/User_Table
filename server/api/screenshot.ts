@@ -1,3 +1,4 @@
+import Chromium from 'chrome-aws-lambda'
 import puppeteer from 'puppeteer'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
@@ -59,8 +60,10 @@ export default defineEventHandler(async (event) => {
       })
 
     const browser = await puppeteer.launch({
-      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      defaultViewport: Chromium.defaultViewport,
+      executablePath: await Chromium.executablePath,
+      headless: true,
     })
 
     const page = await browser.newPage()
