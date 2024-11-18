@@ -9,7 +9,7 @@ onMounted(async () => {
 })
 
 const fastCreateDisplay = ref<'lg' | 'md' | 'sm'>('lg')
-const fastCreateUrl = ref<string>('https://puanla.co')
+const fastCreateUrl = ref<string>()
 const createAndDownload = ref<boolean>(false)
 
 const screenshotStore = useScreenShotStore()
