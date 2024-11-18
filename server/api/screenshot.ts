@@ -1,5 +1,5 @@
 import chromium from '@sparticuz/chromium'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
 export default defineEventHandler(async (event) => {
@@ -68,13 +68,14 @@ export default defineEventHandler(async (event) => {
 
   // Puppeteer ile ekran görüntüsü alma
   try {
+    await rateLimiter.consume(ip)
+
     // live
     const browser = await puppeteer.launch({
-      // ignoreDefaultArgs: ['--disable-extensions'],
-      args: chromium.args, // Lambda'ya uygun args
-      executablePath: await chromium.executablePath(), // Burada await kullanarak asenkron fonksiyonu doğru şekilde çağırıyoruz
-      headless: chromium.headless, // Başsız modda çalışacak
-      defaultViewport: chromium.defaultViewport, // Varsayılan viewport
+      args: chromium.args, //  [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      defaultViewport: chromium.defaultViewport,
     })
 
     // local
@@ -93,7 +94,7 @@ export default defineEventHandler(async (event) => {
     })
 
     // Sayfayı ziyaret et
-    await page.goto(url, { waitUntil: 'load', timeout: 30000 })
+    await page.goto(url, { waitUntil: 'networkidle2'/* , timeout: 60000 */ })
     await page.waitForSelector('body')
 
     // Ekran görüntüsünü al
