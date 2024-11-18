@@ -61,6 +61,7 @@ export default defineEventHandler(async (event) => {
       })
 
     const browser = await puppeteer.launch({
+      ignoreDefaultArgs: ['--disable-extensions'],
       args: chromium.args,
       executablePath: await chromium.executablePath,
       headless: chromium.headless,
