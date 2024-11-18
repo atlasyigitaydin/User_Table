@@ -63,7 +63,7 @@ export default defineEventHandler(async (event) => {
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
       defaultViewport: Chromium.defaultViewport,
       executablePath: await Chromium.executablePath,
-      headless: true,
+      headless: Chromium.headless,
     })
 
     const page = await browser.newPage()
