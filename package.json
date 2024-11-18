@@ -16,11 +16,12 @@
     "@nuxt/icon": "^1.7.5",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@pinia/nuxt": "^0.7.0",
+    "chrome-aws-lambda": "^10.1.0",
     "express": "^4.21.1",
     "firebase": "^11.0.2",
     "nuxt": "^3.14.159",
     "pinia": "^2.2.6",
-    "puppeteer": "^23.8.0",
+    "puppeteer-core": "^23.8.0",
     "rate-limiter-flexible": "^5.0.4",
     "vue": "latest",
     "vue-router": "latest"
