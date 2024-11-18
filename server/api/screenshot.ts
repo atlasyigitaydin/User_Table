@@ -51,6 +51,12 @@ export default defineEventHandler(async (event) => {
 
   try {
     await rateLimiter.consume(ip)
+      .catch((error) => {
+        return {
+          statusCode: 429,
+          message: `İstek sınırı aşıldı - ${error}`,
+        }
+      })
 
     const browser = await puppeteer.launch({
       headless: true,
@@ -83,8 +89,8 @@ export default defineEventHandler(async (event) => {
   }
   catch (error) {
     return {
-      statusCode: error instanceof Error && error.message.includes('Too Many Requests') ? 429 : 500,
-      message: 'Ekran görüntüsü alınamadı veya istek sınırı aşıldı',
+      statusCode: 500,
+      message: `Ekran görüntüsü alınamadı - ${error}`,
     }
   }
 })
