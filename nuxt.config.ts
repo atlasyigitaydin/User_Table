@@ -1,6 +1,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   ssr: true,
+  nitro: {
+    preset: 'vercel',
+  },
+  // build: {
+  //   transpile: ['vue', '@vue/server-renderer'],
+  // },
   devtools: { enabled: false },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxt/icon'],
   runtimeConfig: {
