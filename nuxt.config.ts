@@ -3,12 +3,6 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
   },
-  // nitro: {
-  //   preset: 'vercel',
-  // },
-  // build: {
-  //   transpile: ['vue', '@vue/server-renderer'],
-  // },
   devtools: { enabled: false },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@pinia/nuxt'],
   runtimeConfig: {
