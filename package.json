@@ -21,6 +21,7 @@
     "firebase": "^11.0.2",
     "nuxt": "^3.14.159",
     "pinia": "^2.2.6",
+    "puppeteer": "^23.8.0",
     "puppeteer-core": "^23.8.0",
     "rate-limiter-flexible": "^5.0.4",
     "vue": "latest",

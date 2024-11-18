@@ -1,5 +1,6 @@
-import chromium from '@sparticuz/chromium'
-import puppeteer from 'puppeteer-core'
+import chromium from '@sparticuz/chromium' // live
+import puppeteer from 'puppeteer-core' // live
+// import puppeteer from 'puppeteer' // local
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
 export default defineEventHandler(async (event) => {
@@ -68,13 +69,20 @@ export default defineEventHandler(async (event) => {
 
   // Puppeteer ile ekran görüntüsü alma
   try {
+    // live
     const browser = await puppeteer.launch({
-      ignoreDefaultArgs: ['--disable-extensions'],
+      // ignoreDefaultArgs: ['--disable-extensions'],
       args: chromium.args, // Lambda'ya uygun args
       executablePath: await chromium.executablePath(), // Burada await kullanarak asenkron fonksiyonu doğru şekilde çağırıyoruz
       headless: chromium.headless, // Başsız modda çalışacak
       defaultViewport: chromium.defaultViewport, // Varsayılan viewport
     })
+
+    // local
+    // const browser = await puppeteer.launch({
+    //   headless: true,
+    //   args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    // })
 
     const page = await browser.newPage()
 
