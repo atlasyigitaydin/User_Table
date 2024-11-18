@@ -1,10 +1,8 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  app: {
-    baseURL: '/',
-  },
   devtools: { enabled: false },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/icon', '@nuxtjs/tailwindcss'],
   runtimeConfig: {
     public: {
       apiKey: process.env.NUXT_PUBLIC_API_KEY,

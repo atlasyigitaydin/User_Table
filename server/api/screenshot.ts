@@ -1,6 +1,5 @@
-import chromium from '@sparticuz/chromium' // live
-import puppeteer from 'puppeteer-core' // live
-// import puppeteer from 'puppeteer' // local
+import chromium from '@sparticuz/chromium'
+import puppeteer from 'puppeteer-core'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
 export default defineEventHandler(async (event) => {

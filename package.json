@@ -16,12 +16,10 @@
     "@nuxt/icon": "^1.7.5",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@pinia/nuxt": "^0.7.0",
-    "@sparticuz/chromium": "^131.0.0",
-    "express": "^4.21.1",
+    "@sparticuz/chromium": "112.0.0",
     "firebase": "^11.0.2",
     "nuxt": "^3.14.159",
     "pinia": "^2.2.6",
-    "puppeteer": "^23.8.0",
     "puppeteer-core": "^23.8.0",
     "rate-limiter-flexible": "^5.0.4",
     "vue": "latest",
@@ -29,9 +27,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.1",
-    "@iconify-json/material-symbols-light": "^1.2.7",
-    "@iconify-json/mynaui": "^1.2.7",
-    "@types/express": "^5.0.0",
     "eslint": "^9.15.0"
   }
 }
