@@ -1,9 +1,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   ssr: true,
-  nitro: {
-    preset: 'vercel',
-  },
+  // nitro: {
+  //   preset: 'vercel',
+  // },
   // build: {
   //   transpile: ['vue', '@vue/server-renderer'],
   // },
