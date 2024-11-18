@@ -5,16 +5,16 @@ export const useFirebaseStore = defineStore('firebase', () => {
   const runtimeConfig = useRuntimeConfig()
 
   const firebaseConfig = {
-    apiKey: runtimeConfig.public.firebase.apiKey,
-    authDomain: runtimeConfig.public.firebase.authDomain,
-    projectId: runtimeConfig.public.firebase.projectId,
-    storageBucket: runtimeConfig.public.firebase.storageBucket,
-    messagingSenderId: runtimeConfig.public.firebase.messagingSenderId,
-    appId: runtimeConfig.public.firebase.appId,
-    measurementId: runtimeConfig.public.firebase.measurementId,
+    apiKey: runtimeConfig.public.apiKey,
+    authDomain: runtimeConfig.public.authDomain,
+    projectId: runtimeConfig.public.projectId,
+    storageBucket: runtimeConfig.public.storageBucket,
+    messagingSenderId: runtimeConfig.public.messagingSenderId,
+    appId: runtimeConfig.public.appId,
+    measurementId: runtimeConfig.public.measurementId,
   }
 
-  const documentConfig = runtimeConfig.public.firebase.documentConfig
+  const documentConfig = runtimeConfig.public.documentConfig
 
   const app = initializeApp(firebaseConfig)
   const firestore = getFirestore(app)

@@ -9,8 +9,8 @@ export default defineEventHandler(async (event) => {
 
   const runtimeConfig = useRuntimeConfig()
   const telegramConfig = {
-    botToken: runtimeConfig.public.telegram.botToken,
-    chatId: runtimeConfig.public.telegram.chatId,
+    botToken: runtimeConfig.public.botToken,
+    chatId: runtimeConfig.public.chatId,
   }
 
   const sendToTelegram = async (url: string) => {
