@@ -1,5 +1,5 @@
 import chromium from 'chrome-aws-lambda'
-import puppeteer from 'puppeteer-core'
+// import puppeteer from 'puppeteer-core'
 
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
@@ -60,7 +60,7 @@ export default defineEventHandler(async (event) => {
         }
       })
 
-    const browser = await puppeteer.launch({
+    const browser = await chromium.puppeteer.launch({
       ignoreDefaultArgs: ['--disable-extensions'],
       args: chromium.args,
       executablePath: await chromium.executablePath,
