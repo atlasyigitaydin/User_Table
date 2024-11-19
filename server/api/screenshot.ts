@@ -1,6 +1,6 @@
 import chromium from '@sparticuz/chromium'
-import puppeteer from 'puppeteer'
-// import puppeteer from 'puppeteer-core'
+// import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
 export default defineEventHandler(async (event) => {
@@ -71,17 +71,17 @@ export default defineEventHandler(async (event) => {
   try {
     await rateLimiter.consume(ip)
 
-    // const browser = await puppeteer.launch({
-    //   args: chromium.args, //  [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
-    //   executablePath: await chromium.executablePath(),
-    //   headless: chromium.headless,
-    //   defaultViewport: chromium.defaultViewport,
-    // })
-
     const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: chromium.args, //  [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      defaultViewport: chromium.defaultViewport,
     })
+
+    // const browser = await puppeteer.launch({
+    //   headless: true,
+    //   args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    // })
 
     const page = await browser.newPage()
 
