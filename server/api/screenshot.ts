@@ -1,5 +1,6 @@
 import chromium from '@sparticuz/chromium'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
+// import puppeteer from 'puppeteer-core'
 import { RateLimiterMemory } from 'rate-limiter-flexible'
 
 export default defineEventHandler(async (event) => {
@@ -77,18 +78,10 @@ export default defineEventHandler(async (event) => {
     //   defaultViewport: chromium.defaultViewport,
     // })
 
-    // docker op.
     const browser = await puppeteer.launch({
-      args: chromium.args,
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || await chromium.executablePath(),
       headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     })
-
-    // local
-    // const browser = await puppeteer.launch({
-    //   headless: true,
-    //   args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    // })
 
     const page = await browser.newPage()
 
