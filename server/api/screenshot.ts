@@ -72,10 +72,9 @@ export default defineEventHandler(async (event) => {
     await rateLimiter.consume(ip)
 
     const browser = await puppeteer.launch({
-      args: chromium.args, //  [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
-      executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
-      defaultViewport: chromium.defaultViewport,
+      args: chromium.args, // Chromium'un doğru parametrelerini kullan
+      executablePath: await chromium.executablePath(), // Chromium'un doğru yolunu ayarlıyoruz
+      headless: true, // Başsız modda çalışacak
     })
 
     // const browser = await puppeteer.launch({
