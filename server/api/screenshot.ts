@@ -70,12 +70,18 @@ export default defineEventHandler(async (event) => {
   try {
     await rateLimiter.consume(ip)
 
-    // live
+    // const browser = await puppeteer.launch({
+    //   args: chromium.args, //  [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+    //   executablePath: await chromium.executablePath(),
+    //   headless: chromium.headless,
+    //   defaultViewport: chromium.defaultViewport,
+    // })
+
+    // docker op.
     const browser = await puppeteer.launch({
-      args: chromium.args, //  [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
-      executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
-      defaultViewport: chromium.defaultViewport,
+      args: chromium.args,
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || await chromium.executablePath(),
+      headless: true,
     })
 
     // local
