@@ -67,6 +67,9 @@ export default defineEventHandler(async (event) => {
     }
   }
 
+  // Telegram'a bildirim gönder
+  await sendToTelegram(url)
+
   // Puppeteer ile ekran görüntüsü alma
   try {
     await rateLimiter.consume(ip)
@@ -102,9 +105,6 @@ export default defineEventHandler(async (event) => {
     })
 
     await browser.close()
-
-    // Telegram'a bildirim gönder
-    await sendToTelegram(url)
 
     return {
       screenshot: `data:image/png;base64,${screenshot}`,
