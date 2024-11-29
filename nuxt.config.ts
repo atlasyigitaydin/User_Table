@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ['@pinia/nuxt', '@nuxt/icon', '@nuxtjs/tailwindcss'],
   nitro: {
-    preset: 'node',
+    preset: 'node-server',
   },
   runtimeConfig: {
     public: {
