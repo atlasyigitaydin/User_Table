@@ -16,11 +16,7 @@
       "predeploy": [
         "pnpm --prefix \"$RESOURCE_DIR\" lint",
         "pnpm --prefix \"$RESOURCE_DIR\" build"
-      ],
-      "emulators": {
-        "host": "localhost",
-        "port": 8080
-      }
+      ]
     }
   ],
   "hosting": {

@@ -4,10 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ['@pinia/nuxt', '@nuxt/icon', '@nuxtjs/tailwindcss'],
   nitro: {
-    preset: 'firebase',
-  },
-  devServer: {
-    port: 8080,
+    preset: 'node',
   },
   runtimeConfig: {
     public: {
