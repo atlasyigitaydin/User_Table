@@ -9,9 +9,9 @@
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "serve": "npm run build && firebase emulators:start --only functions",
-    "shell": "npm run build && firebase functions:shell",
-    "start": "npm run shell",
+    "serve": "pnpm build && firebase emulators:start --only functions",
+    "shell": "pnpm build && firebase functions:shell",
+    "start": "pnpm shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
