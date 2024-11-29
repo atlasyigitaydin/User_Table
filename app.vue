@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const screenShotStore = useScreenShotStore()
-
 useHead({
   title: 'WSS – Kolay ve Hızlı Görüntü Çekme Aracı',
   meta: [
