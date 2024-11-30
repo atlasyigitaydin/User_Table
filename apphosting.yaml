@@ -8,50 +8,30 @@ runConfig:
 env:
   - variable: API_KEY
     secret: secretApiKey
-    availability:
-      - RUNTIME
 
   - variable: AUTH_DOMAIN
     secret: secretAuthDomain
-    availability:
-      - RUNTIME
 
   - variable: PROJECT_ID
     secret: secretProjectId
-    availability:
-      - RUNTIME
 
   - variable: STORAGE_BUCKET
     secret: secretStorageBucket
-    availability:
-      - RUNTIME
 
   - variable: MESSAGING_SENDER_ID
     secret: secretMessagingSenderId
-    availability:
-      - RUNTIME
 
   - variable: APP_ID
     secret: secretAppId
-    availability:
-      - RUNTIME
 
   - variable: MEASUREMENT_ID
     secret: secretMeasurementId
-    availability:
-      - RUNTIME
 
   - variable: DOCUMENT_CONFIG
     secret: secretDocumentConfig
-    availability:
-      - RUNTIME
 
   - variable: BOT_TOKEN
     secret: secretBotToken
-    availability:
-      - RUNTIME
 
   - variable: CHAT_ID
     secret: secretChatId
-    availability:
-      - RUNTIME
