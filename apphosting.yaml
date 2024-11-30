@@ -1,12 +1,3 @@
-# Settings for Cloud Run
-runConfig:
-  minInstances: 2
-  maxInstances: 100
-  concurrency: 100
-  cpu: 2
-  memoryMiB: 1024
-
-# Environment variables and secrets
 env:
   - variable: NUXT_PUBLIC_API_KEY
     secret: NUXT_PUBLIC_API_KEY
