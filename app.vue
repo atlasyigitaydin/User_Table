@@ -8,6 +8,7 @@ const screenShotStore = useScreenShotStore()
       SYSTEM ERROR!
     </div>
   </div>
+
   <Loading :loading="screenShotStore.loading" />
   <NuxtPage />
 </template>
