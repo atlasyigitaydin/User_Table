@@ -1,10 +1,10 @@
+---
 runConfig:
   minInstances: 0
   maxInstances: 100
   concurrency: 80
   cpu: 1
   memoryMiB: 512
-
 env:
   - variable: API_KEY
     secret: secretApiKey
